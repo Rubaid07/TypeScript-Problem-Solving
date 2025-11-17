@@ -71,3 +71,35 @@ const printBookDetails =(book: Book): void => {
     const availableity = book.isAvailable ? 'Yes' : 'No';
     console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${availableity}`);
 }
+
+
+
+const getUniqueValues = (arr1: number[], arr2: number[]): number[] => {
+    const result: number[] = [];
+    for (let i = 0; i < arr1.length; i++) {
+        let isDuplicate = false;
+        for (let j = 0; j < result.length; j++) {
+            if (arr1[i] === result[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            result[result.length] = arr1[i];
+        }
+    }
+
+    for (let i = 0; i < arr2.length; i++) {
+        let isDuplicate = false;
+        for (let j = 0; j < result.length; j++) {
+            if (arr2[i] === result[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            result[result.length] = arr2[i];
+        }
+    }
+    return result;
+}
