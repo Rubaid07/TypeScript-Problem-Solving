@@ -10,6 +10,8 @@ const formatValue = (value: string | number | boolean) => {
     }
 }   
 
+
+
 const getLength = (input: string | any[]) => {
     if (typeof input === 'string') {
     return input.length;
@@ -19,6 +21,9 @@ const getLength = (input: string | any[]) => {
     }
     throw new Error('Invalid input type');
 }
+
+
+
 class Person {
     name: string;
     age: number;
@@ -32,3 +37,12 @@ class Person {
     }
 }
 
+
+
+type RatedItem = {
+    title: string;
+    rating: number;
+}
+const filterByRating = (items: RatedItem[]): RatedItem[] => {
+    return items.filter(item => item.rating >= 4);
+}
