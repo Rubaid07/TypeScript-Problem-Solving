@@ -12,7 +12,7 @@ const formatValue = (value: string | number | boolean) => {
 
 
 
-const getLength = (input: string | any[]) => {
+const getLength = (input: string | any[]): number => {
     if (typeof input === 'string') {
     return input.length;
     }
