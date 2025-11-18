@@ -74,8 +74,8 @@ const printBookDetails =(book: Book): void => {
 
 
 
-const getUniqueValues = (arr1: number[], arr2: number[]): number[] => {
-    const result: number[] = [];
+const getUniqueValues = (arr1: (number | string)[], arr2: (number | string)[]): (number | string)[] => {
+    const result: (number | string)[] = [];
     for (let i = 0; i < arr1.length; i++) {
         let isDuplicate = false;
         for (let j = 0; j < result.length; j++) {
@@ -103,3 +103,20 @@ const getUniqueValues = (arr1: number[], arr2: number[]): number[] => {
     }
     return result;
 }
+
+
+
+type Product = {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+}
+const calculateTotalPrice = (products: Product[]): number => {
+  return products.reduce((total, product) => {
+    const base = product.price * product.quantity;
+    const discount = product.discount ?? 0;
+    const final = base * (1 - discount / 100);
+    return total + final;
+  }, 0);
+};
